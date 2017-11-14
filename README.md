@@ -197,7 +197,7 @@ Neil Morton [GitHub](https://github.com/neilmorton) [Twitter](https://twitter.co
 License
 ---------
 
-GetRated is available under the MIT license. See the LICENSE file for more info.
+GetRated is available under the MIT license. See the [LICENSE](https://github.com/neilmorton/GetRated/blob/master/LICENSE) file for more info.
 
 
 Release Notes
