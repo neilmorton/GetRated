@@ -1,7 +1,6 @@
 GetRated
 =======
 
-[![CI Status](http://img.shields.io/travis/neilmorton/GetRated.svg?style=flat)](https://travis-ci.org/neilmorton/GetRated)
 [![Version](https://img.shields.io/cocoapods/v/GetRated.svg?style=flat)](http://cocoapods.org/pods/GetRated)
 [![License](https://img.shields.io/cocoapods/l/GetRated.svg?style=flat)](http://cocoapods.org/pods/GetRated)
 [![Platform](https://img.shields.io/cocoapods/p/GetRated.svg?style=flat)](http://cocoapods.org/pods/GetRated)
