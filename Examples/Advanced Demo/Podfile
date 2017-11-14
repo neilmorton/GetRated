@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'AdvancedDemo' do
+  pod 'GetRated', :path => '../../'
+
+end

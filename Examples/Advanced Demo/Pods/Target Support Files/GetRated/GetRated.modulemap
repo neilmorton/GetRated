@@ -1,0 +1,6 @@
+framework module GetRated {
+  umbrella header "GetRated-umbrella.h"
+
+  export *
+  module * { export * }
+}
