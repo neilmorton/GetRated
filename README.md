@@ -10,7 +10,7 @@ GetRated
 Purpose
 ----------
 
-GetRated is a handy class to help you promote your iPhone apps by using SKStoreReviewController in iOS 10.3 and later to prompt users to rate the app after using it for a few days. This approach is one of the best ways to get positive ratings by targetting only regular users (who presumably like the app or they wouldn't keep using it!).
+GetRated is a handy class to help you promote your iPhone apps by using SKStoreReviewController in iOS 10.3 and later to prompt users to rate your app after using it for a few days. This approach is one of the best ways to get positive ratings by targetting only regular users (who presumably like the app or they wouldn't keep using it!).
 
 
 Supported OS & SDK Versions
@@ -42,7 +42,7 @@ pod 'GetRated'
 
 ### Basic Setup
 
-GetRated typically requires no configuration at all and simply requires starting, the best time to do this is in your AppDelegate's `- [application:didFinishLaunchingWithOptions:]` method.
+GetRated typically requires no configuration and simply requires starting, the best time to do this is in your AppDelegate's `- [application:didFinishLaunchingWithOptions:]` method.
 
 If you do wish to customise GetRated, the best time to do this is again in your AppDelegate's `-[application:didFinishLaunchingWithOptions:]` method. Any configuration should be applied _BEFORE CALLING START_, otherwise the prompt may already have been requested.
 
@@ -54,10 +54,10 @@ If you do wish to customise GetRated, the best time to do this is again in your 
     //configure GetRated
     
     /* _optional_ */
-    //don't prompt at launch
+    //don't prompt at launch - only set this if you intent to call GetRated to prompt manually
     [getRated sharedInstance].promptAtLaunch = NO;
 
-    //enable preview mode - *** FOR TESTING ONLY ***
+    //enable preview mode - *** ONLY SET THIS FOR TESTING ONLY ***
     [getRated sharedInstance].previewMode = YES;
 
     /* _required_ */
@@ -76,49 +76,59 @@ There are a number or properties of the GetRated class that can be used to alter
 
     @property (nonatomic, assign) float daysUntilFirstPrompt;
     
-This is the number of days the user must have had the app installed before they are prompted to rate it. The time is measured from the first time the app is launched. This is a floating point value, so it can be used to specify a fractional number of days (e.g. 0.5). The default value is 10 days.
+This is the number of days the user must have had the app installed before they are prompted to rate it. The time is measured from the first time the app is launched. This is a floating point value, so it can be used to specify a fractional number of days (e.g. 0.5).
+The default value is 10 days.
 
     @property (nonatomic, assign) float daysUntilFuturePrompts;
 
-This is the number of days that must pass after the prompt was requested before the prompt can appear again. The time is measure from the last prompt request. This is a floating point value, so it can be used to specify a fractional number of days (e.g. 0.5). The default value is 123 days. This number is chosen as we are allowed to make a request to `SKStoreReviewController` only 3 times in a 12 month period.
+This is the number of days that must pass after a prompt was requested before the prompt will be requested again. The time is measure from the last prompt request. This is a floating point value, so it can be used to specify a fractional number of days (e.g. 0.5).
+The default value is 123 days. This number is chosen as we are allowed to make a request to `SKStoreReviewController` only 3 times in a 12 month period.
 
     @property (nonatomic, assign) float minimumDaysUntilPromptAfterVersionUpdate;
     
-This is the number of days the user must have had the latest version installed before they are prompted to rate it. The time is measured from the time the latest version of the app is first launched. This is a floating point value, so it can be used to specify a fractional number of days (e.g. 0.5). The default value is 5 days. This avoids the scenario where a prompt is due but the user has only just updated the installed version, only to be asked for a rating straight away.
+This is the number of days the user must have had the latest version installed before they are prompted to rate it. The time is measured from the time the latest version of the app is first launched. This is a floating point value, so it can be used to specify a fractional number of days (e.g. 0.5).
+The default value is 5 days. This avoids the scenario where a prompt is due but the user has only just updated the installed version, only to be asked for a rating straight away.
     
     @property (nonatomic, assign) NSUInteger usesUntilPrompt;
     
-This is the minimum number of times the user must launch the app before they are prompted to rate it. This avoids the scenario where a user runs the app once, doesn't look at it for weeks and then launches it again, only to be immediately prompted to rate it. The minimum use count ensures that only frequent users are prompted. The prompt will appear only after the specified number of days AND uses has been reached. This defaults to 10 uses.
+This is the minimum number of times the user must launch the app before they are prompted to rate it. This avoids the scenario where a user runs the app once, doesn't look at it for weeks and then launches it again, only to be immediately prompted to rate it. The minimum use count ensures that only frequent users are prompted. The prompt will appear only after the specified number of days AND uses has been reached.
+The defauklt value is 10 uses.
 
     @property (nonatomic, assign) NSUInteger eventsUntilPrompt;
 
-For some apps, launches are not a good metric for usage. For example the app might be a game where the user can't write an informed review until they've reached a particular level. In this case you can manually log significant events and have the prompt appear after a predetermined number of these events. Like the usesUntilPrompt setting, the prompt will appear only after the specified number of days AND events, however once the day threshold is reached, the prompt will appear if EITHER the event threshold OR uses threshold is reached. This defaults to 10 events.
+For some apps, launches are not a good metric for usage. For example the app might be a game where the user can't write an informed review until they've reached a particular level. In this case you can manually log significant events and have the prompt appear after a predetermined number of these events. Like the usesUntilPrompt setting, the prompt will appear only after the specified number of days AND events, however once the day threshold is reached, the prompt will appear if EITHER the event threshold OR uses threshold is reached.
+The default value is 10 events.
 
     @property (nonatomic, assign) BOOL onlyPromptIfLatestVersion;
     
-Set this to NO to enabled the rating prompt to be displayed even if the user is not running the latest version of the app. This defaults to YES because that way users won't leave bad reviews due to bugs that you've already fixed, etc.
+Set this to NO to enabled the rating prompt to be displayed even if the user is not running the latest version of the app.
+The default value is YES because that way users won't leave bad reviews due to bugs that you've already fixed, etc.
 
     @property (nonatomic, assign) BOOL promptAtLaunch;
     
 Set this to NO to disable the rating prompt appearing automatically when the application launches or returns from the background. The rating criteria will continue to be tracked, but the prompt will not be displayed automatically while this setting is in effect. You can use this option if you wish to manually control display of the rating prompt.
+The default value is YES.
     
     @property (nonatomic, assign) BOOL verboseLogging;
     
-This option will cause GetRated to send detailed logs to the console about the prompt decision process. If your app is not correctly prompting for a rating when you would expect it to, this will help you figure out why. Verbose logging is enabled by default on debug builds, and disabled on release and deployment builds.
+This option will cause GetRated to send detailed logs to the console about the prompt decision process. If your app is not correctly prompting for a rating when you would expect it to, this will help you figure out why.
+Verbose logging is enabled by default on debug builds, and disabled on release and deployment builds.
 
     @property (nonatomic, assign) BOOL previewMode;
     
-If set to YES, Getrated will always display the rating prompt on launch, regardless of how long the app has been in use or whether it's the latest version (unless you have explicitly disabled the `promptAtLaunch` option). Use this to check your configuration is correct during testing, but disable it for the final release (defaults to NO).
+If set to YES, GetRated will always display the rating prompt on launch, regardless of how long the app has been in use or whether it's the latest version (unless you have explicitly disabled the `promptAtLaunch` option). Use this to check your configuration is correct during testing, but disable it for the final release.
+The default value is NO.
 
     @property (nonatomic, assign) BOOL promptEnabled;
     
-This allows you to switch off the prompt, for instance you may wish to remotely manage whenther prompts are enabled or not (defaults to YES).
+This allows you to switch off the prompts. For instance you may wish to remotely manage whenther prompts are enabled or not.
+The default value is YES.
 
 
 Advanced properties
 ------------------------
 
-If the default GetRated behaviour doesn't meet your requirements, you can implement your own by using the advanced properties, methods and delegate. The properties below let you access internal state and override it:
+If the default GetRated behaviour doesn't meet your requirements, you can implement your own by using the advanced properties and methods. The properties below let you access internal state and override it:
 
     @property (nonatomic, strong) NSDate *appFirstUsed;
     
@@ -130,7 +140,7 @@ The first date on which the user launched the current version of the app. This i
     
     @property (nonatomic, strong) NSDate *lastRequestedRating;
     
-The date on which GetRated last attempted to request a rating.
+The date on which GetRated last attempted to request a rating (if any).
     
     @property (nonatomic, assign) NSUInteger usesCount;
     
@@ -160,7 +170,7 @@ This method will check if all prompting criteria have been met, and if the app s
     
     - (void)openRatingsPageOnAppStore;
     
-This method skips the user alert and opens the application ratings page on the iPhone app store if a connection to the app store is available. This will also cause the `lastRequestedRating` property to  be updated.
+This method skips the user alert and opens the application ratings page on the iPhone app store if a connection to the app store is available. This will also cause the `lastRequestedRating` property to  be updated. This can be used to allow the addition of a 'Please Rate on the App Store' button on an About screen or similar.
     
     - (void)logEvent:(BOOL)deferPrompt;
     
@@ -174,15 +184,15 @@ The standard example demonstrates a basic implementation of GetRated, with a pro
 
 The advanced example demonstrates how you might implement GetRated by performing calls to `promptIfAllCriteriaMet` from a suitable place in your app. This allows for the prompt to appear at a given point in your app if all criteria have been met.
 
-Note that both examples have `previewMode` enabled, therefore the `daysUntilFirstPrompt`, `daysUntilFuturePrompts`, `minimumDaysUntilPromptAfterVersionUpdate`, `usesUntilPrompt` and `eventsUntilPrompt` are ignored.
+_Note that both examples have `previewMode` enabled, therefore the `daysUntilFirstPrompt`, `daysUntilFuturePrompts`, `minimumDaysUntilPromptAfterVersionUpdate`, `usesUntilPrompt` and `eventsUntilPrompt` are ignored._
 
-To run the example project, clone the repo, and run `pod install` from the relevant example directory first.
+To run either example project, clone the repo, and run `pod install` from the relevant example directory first.
 
 
 Author
 --------
 
-Neil Morton [GitHub](https://github.com/neilmorton)
+Neil Morton [GitHub](https://github.com/neilmorton) [Twitter](https://twitter.com/MrNeilM)
 
 
 License
