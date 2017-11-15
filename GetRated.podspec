@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GetRated'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Handy class to help you promote iPhone apps by using SKStoreReviewController in iOS 10.3 & later to prompt users to rate the app.'
 
 # This description is used to generate tags and improve search results.
@@ -24,13 +24,13 @@ A handy class to help you promote your iPhone apps by using SKStoreReviewControl
   s.homepage         = 'https://github.com/neilmorton/GetRated'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Neil Morton' => 'https://github.com/neilmorton/' }
+  s.author           = 'Neil Morton'
   s.source           = { :git => 'https://github.com/neilmorton/GetRated.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
 
-  s.source_files = 'GetRated/**/*'
+s.source_files = 'GetRated/getRated.{h,m}'
   
   # s.resource_bundles = {
   #   'GetRated' => ['GetRated/Assets/*.png']

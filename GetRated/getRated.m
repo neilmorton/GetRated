@@ -1,7 +1,7 @@
 //
 //  getRated.m
 //
-//  Version 0.1.0
+//  Version 0.1.1
 //
 //  Created by Neil Morton on 29/09/2017.
 //  Copyright © 2017 Neil Morton. All rights reserved.
@@ -141,7 +141,6 @@ static NSString *const getRatedDidOpenRatingsPageOnAppSore = @"getRatedDidOpenRa
         [self setVersionFirstUsed:[NSDate date]];
         [self setUsesCount:0];
         [self setEventCount:0];
-//        [self setLastRequestedRating:[NSDate date]]; // Removed as shouldn't be set by default
         getLatestAppData = true;
     }
     else if (![self.lastVersionUsed isEqualToString:self.applicationVersion])

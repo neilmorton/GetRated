@@ -1,7 +1,7 @@
 //
 //  getRated.m
 //
-//  Version 0.1.0
+//  Version 0.1.1
 //
 //  Created by Neil Morton on 29/09/2017.
 //  Copyright © 2017 Neil Morton. All rights reserved.
