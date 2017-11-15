@@ -191,7 +191,7 @@ To run either example project, clone the repo, and run `pod install` from the re
 Author
 --------
 
-Neil Morton [GitHub](https://github.com/neilmorton) [Twitter](https://twitter.com/MrNeilM)
+Neil Morton [GitHub](https://github.com/neilmorton)
 
 
 License

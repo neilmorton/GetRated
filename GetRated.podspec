@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GetRated'
-  s.version          = '0.1.1'
+  s.version          = '1.0.0'
   s.summary          = 'Handy class to help you promote iPhone apps by using SKStoreReviewController in iOS 10.3 & later to prompt users to rate the app.'
 
 # This description is used to generate tags and improve search results.
@@ -30,13 +30,8 @@ A handy class to help you promote your iPhone apps by using SKStoreReviewControl
 
   s.ios.deployment_target = '7.0'
 
-s.source_files = 'GetRated/getRated.{h,m}'
+  s.source_files = 'GetRated/getRated.{h,m}'
   
-  # s.resource_bundles = {
-  #   'GetRated' => ['GetRated/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'SystemConfiguration', 'StoreKit'
 
 end
