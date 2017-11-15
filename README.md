@@ -203,11 +203,4 @@ GetRated is available under the MIT license. See the [LICENSE](https://github.co
 Release Notes
 -----------------
 
-Version 0.1.1
-
-- Removed commented code.
-- Updated version info.
-
-Version 0.1.0
-
-- Inital build
+See [CHANGELOG.MD](https://github.com/neilmorton/GetRated/blob/master/CHANGELOG.md)
