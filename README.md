@@ -11,6 +11,8 @@ Purpose
 
 GetRated is a handy class to help you promote your iPhone apps by using SKStoreReviewController in iOS 10.3 and later to prompt users to rate your app after using it for a few days. This approach is one of the best ways to get positive ratings by targetting only regular users (who presumably like the app or they wouldn't keep using it!).
 
+GetRated was inspired by, and in parts based on [iRate](https://github.com/nicklockwood/iRate) by Nick Lockwood.
+
 
 Supported OS & SDK Versions
 -----------------------------------

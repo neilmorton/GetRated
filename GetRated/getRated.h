@@ -1,10 +1,37 @@
 //
-//  getRated.m
+//  getRated.h
 //
-//  Version 1.0.0
+//  Version 1.0.1
 //
 //  Created by Neil Morton on 29/09/2017.
 //  Copyright © 2017 Neil Morton. All rights reserved.
+//
+//  Distributed under the permissive MIT license
+//  Get the latest version from here:
+//
+//  https://github.com/neilmorton/GetRated
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+//
+//  Copyright © for portions of GetRated are held by Charcoal Design, 2011
+//  as part of iRate.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -23,9 +50,6 @@
 //  misrepresented as being the original software.
 //
 //  3. This notice may not be removed or altered from any source distribution.
-//
-//  4. getRated was inspired by, and in parts based on iRate by Nick Lockwood.
-//  It was developed to provide an easy way to manage SKStoreReviewController.
 //
 
 #import <Foundation/Foundation.h>
