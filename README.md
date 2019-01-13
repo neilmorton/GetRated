@@ -9,7 +9,7 @@ GetRated
 Purpose
 ----------
 
-GetRated is a handy class to help you promote your iPhone & iPad apps. GetRated uses SKStoreReviewController (available in iOS 10.3 and later) to prompt users to rate your app after using it for a few days. GetRated will then manage further attempts to get a rating by retrying periodically, in line with App Store recomendations. This approach is one of the best ways to get positive ratings by targetting only regular users (who presumably like the app or they wouldn't keep using it!).
+GetRated is a handy class to help you promote your iPhone & iPad apps. GetRated uses [SKStoreReviewController](https://developer.apple.com/documentation/storekit/skstorereviewcontroller) (available in iOS 10.3 and later) to prompt users to rate your app after using it for a few days. GetRated will then manage further attempts to get a rating by retrying periodically, in line with App Store recomendations. This approach is one of the best ways to get positive ratings by targetting only regular users (who presumably like the app or they wouldn't keep using it!).
 
 GetRated will ensure that a number of configurable requirements are met before prompting. These include daysUntilFirstPrompt, daysUntilFuturePrompts, minimumDaysUntilPromptAfterVersionUpdate, usesUntilPrompt and eventsUntilPrompt.
 
@@ -21,7 +21,7 @@ GetRated was inspired by, and in parts based on [iRate](https://github.com/nickl
 Supported OS & SDK Versions
 -----------------------------------
 
-* Supported build target - iOS 11.1 (Xcode 9.1)
+* Supported build target - iOS 12.1 (Xcode 10.1)
 * Earliest supported deployment target - iOS 8.1
 * Earliest compatible deployment target - iOS 7.0
 
@@ -182,6 +182,14 @@ This method skips the user alert and opens the application ratings page on the i
 This method can be called from anywhere in your app (after GetRated has been configured) and increments the GetRated significant event count. When the predefined number of events is reached, the rating prompt will be shown. The optional deferPrompt parameter is used to determine if the prompt will be shown immediately (NO) or if the app will wait until the next launch (YES).
 
 
+Notes
+--------------------
+
+When calling `promptForRating` or `promptIfAllCriteriaMet` or if you enable `previewMode`, while your app is still in development mode, a rating/review request view is always displayed so that you can test the user interface and experience. However, as it is not possible to submit a rating from a development build, the Submit button will be greyed out. 
+
+When your app is distributed via TestFlight, the rating/review request view will not be displayed.
+
+
 Example Projects
 --------------------
 
@@ -198,6 +206,7 @@ Author
 --------
 
 [Neil Morton](https://github.com/neilmorton)
+[NeilMorton.net](https://neilmorton.net)
 
 
 License
